@@ -1,21 +1,73 @@
-html {
-    background-color:  #171717;
-    font-family: sans-serif;
+/* Estilos de la barra de navegación */
+
+/* Hamburger Icon */
+.hamburger {
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  display: block;
+  width: 40px;
+  height: 5px;
+  margin-bottom: 10px;
+  background-color: white;
+}
+
+.hamburger .line:last-child {
+  margin-bottom: 0;
+}
+
+/* Nav Links Container */
+.nav-links {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: #23262d;
+  background-image: none;
+  background-size: 400%;
+  border-radius: 0px;
+  background-position: 100%;
+  transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  display: none; /* Inicialmente oculto en pantallas pequeñas */
+}
+
+/* Nav Links Styles */
+.nav-links > a {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #23262d;
+  color: white;
+  border-radius: 4px;
+  padding: 0.3em 0.4em;
+  transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-links > a:hover {
+  color: #23262d;
+  background-color: white;
+}
+
+.expanded {
+  display: unset;
+}
+
+/* Expanded Nav Links Styles for Larger Screens */
+@media screen and (min-width: 636px) {
+  .nav-links {
+    display: flex; /* Muestra los enlaces en pantallas más grandes */
   }
-  
-  body {
-    margin: 0 auto;
-    width: 100%;
-   /*  max-width: 80ch; */
-    padding: 1rem;
-    line-height: 1.5;
+
+  .nav-links a {
+    display: inline-block;
+    padding: 15px 20px;
   }
-  
-  * {
-    box-sizing: border-box;
+
+  .hamburger {
+    display: none; /* Oculta el ícono del menú en pantallas más grandes */
   }
-  
-  h1 {
-    margin: 1rem 0;
-    font-size: 2.5rem;
-  }
+}
