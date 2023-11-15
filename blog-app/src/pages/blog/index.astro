@@ -1,9 +1,11 @@
 ---
 import Card from "@components/Card.astro";
 import Layout from "../../layouts/Layout.astro";
+
+const pageTitle = "Blog";
 ---
 
-<Layout title="Blog">
+<Layout title={pageTitle}>
   <main>
     <h1 class="text-gradient">Mi sitio Astro</h1>
     <p>Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
