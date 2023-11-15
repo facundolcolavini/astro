@@ -1,0 +1,94 @@
+---
+import Card from "@components/Card.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Blog">
+  <main>
+    <h1 class="text-gradient">Mi sitio Astro</h1>
+    <p>Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
+    <ul class="link-card-grid">
+      <Card
+        href="/posts/post-1/"
+        title="Publicación 1"
+        body="Este es la primera publicación de mi nuevo blog Astro."
+      />
+      <Card
+        href="/posts/post-2/"
+        title="Publicación 2"
+        body="Este es la segunda publicación de mi nuevo blog Astro."
+      />
+      <Card
+        href="/posts/post-3/"
+        title="Publicación 3"
+        body="Este es la tercera publicación de mi nuevo blog Astro."
+      />
+    </ul>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 100%;
+    max-width: 800px;
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 2rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .link-card-grid li {
+    margin-bottom: 1rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    background: linear-gradient(
+      rgba(var(--accent-dark), 66%),
+      rgba(var(--accent-dark), 33%)
+    );
+    border-radius: 8px;
+  }
+
+  .link-card-grid li a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .link-card-grid li p {
+    color: white;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .link-card-grid li a:hover {
+    text-decoration: underline;
+  }
+</style>
