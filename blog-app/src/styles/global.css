@@ -71,3 +71,13 @@
     display: none; /* Oculta el ícono del menú en pantallas más grandes */
   }
 }
+
+/* Theme */
+
+html.dark {
+  background-color:  #23262d;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
