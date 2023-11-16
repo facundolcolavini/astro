@@ -2,14 +2,6 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "baseUrl": "F:/Mis cosas/Programacion/astro/blog-app",
-    "paths": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@layouts/*": [
-        "src/layouts/*"
-      ]
-    },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
   }
