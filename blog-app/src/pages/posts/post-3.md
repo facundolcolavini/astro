@@ -7,6 +7,5 @@ image:
     url: "https://docs.astro.build/assets/rays.webp"
     alt: "Miniatura de los rayos de Astro."
 pubDate: 2023-11-15
-tags: ["astro", "aprender en público", "contratiempos", "comunidad"]
+tags: ["astro","bloguear", "aprender en público", "contratiempos", "comunidad", "Videos", "Otras" ]
 ---
-No siempre ha sido fácil, pero disfruto construyendo con Astro. Además, la [comunidad de Discord](https://astro.build/chat) es muy amable y servicial.

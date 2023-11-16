@@ -1,0 +1,62 @@
+---
+import type { MarkdownInstance } from "astro";
+import Card from "../../components/Card.astro";
+import Layout from "../../layouts/Layout.astro";
+
+interface Frontmatter {
+  title: string;
+  author: string;
+  description: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  pubDate: string;
+  tags: string[]; // Incluir las etiquetas aquí
+}
+
+interface MarkdownFile {
+  frontmatter: Frontmatter;
+  file: {
+    url: string;
+    // Other properties your file might have
+  };
+  title: string; 
+  description: string; 
+  tags: string[]; // Añadir las etiquetas aquí también si es relevante para tu aplicación
+  // Other properties specific to your Markdown files
+}
+
+type MarkdownPost = MarkdownInstance<MarkdownFile>;
+
+export async function getStaticPaths() {
+  const allPosts: MarkdownPost[] = await Astro.glob("../../pages/posts/*.md");
+
+  const uniqueTags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) => post.frontmatter.tags.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filteredPosts } ,
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<Layout title={tag}>
+  <main>
+    <h1>Entradas etiquetadas con {tag}</h1>
+    {
+      posts.map((post) => (
+        <Card
+          href={post.url as string}
+          title={post.frontmatter.title }
+          body={post.frontmatter.description}
+        />
+      ))
+    }
+  </main>
+</Layout>

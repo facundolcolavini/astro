@@ -1,0 +1,38 @@
+---
+interface Tag {
+  tag: string[];
+}
+const { tags } = Astro.props;
+---
+
+<ul class="tags">
+  {
+    tags.map((tag: Tag) => (
+      <li class="skill">
+        <a href={`/tags/${tag}`}>{tag}</a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .skill {
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    background: rgba(var(--accent-light), 12%);
+    color: var(--skillColor);
+    font-weight: var(--fontWeight);
+  }
+  .skill:hover {
+    background: rgba(var(--accent-light), 24%);
+  }
+
+  .skill a {
+    color: rgb(var(--accent-light));
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+</style>
