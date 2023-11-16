@@ -1,20 +1,24 @@
 ---
 import Card from "@components/Card.astro";
 import Layout from "../../layouts/Layout.astro";
+import PostLayouts from "@layouts/MarkdownPostLayout.astro";
 
 const pageTitle = "Blog";
 ---
 
 <Layout title={pageTitle}>
   <main>
+   
     <h1 class="text-gradient">Mi sitio Astro</h1>
     <p>Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
     <ul class="link-card-grid">
+      
       <Card
         href="/posts/post-1/"
         title="Publicación 1"
         body="Este es la primera publicación de mi nuevo blog Astro."
       />
+     
       <Card
         href="/posts/post-2/"
         title="Publicación 2"
