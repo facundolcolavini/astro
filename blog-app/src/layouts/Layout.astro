@@ -1,8 +1,8 @@
 ---
 
+import '../styles/global.css';
 import Footer from "./Footer.astro";
 import Header from "./Header.astro";
-import '../styles/global.css';
 interface Props {
   title: string;
 }
@@ -54,7 +54,7 @@ const { title } = Astro.props;
 
     main {
       width: 100%;
-      height: 100vh;
+      height calc(100vh - var(--footer-height));
       padding: 0;
       color: white;
       font-size: 20px;

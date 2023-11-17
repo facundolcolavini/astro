@@ -26,10 +26,6 @@
   align-items: center;
   gap: 1rem;
   background-color: #23262d;
-  background-image: none;
-  background-size: 400%;
-  border-radius: 0px;
-  background-position: 100%;
   transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
   display: none; /* Inicialmente oculto en pantallas pequeñas */
@@ -43,19 +39,22 @@
   background-color: #23262d;
   color: white;
   border-radius: 4px;
-  padding: 0.3em 0.4em;
   transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .nav-links > a:hover {
   color: #23262d;
-  background-color: white;
+  background-color: rgb(137, 121, 121);
 }
+
 
 .expanded {
-  display: unset;
+  position: absolute;
+  top: calc(100% + .5rem);
+  display: flex;
+  flex-direction: column;
 }
-
+  
 /* Expanded Nav Links Styles for Larger Screens */
 @media screen and (min-width: 636px) {
   .nav-links {
@@ -69,6 +68,13 @@
 
   .hamburger {
     display: none; /* Oculta el ícono del menú en pantallas más grandes */
+  }
+
+  .expanded{
+    position: static;
+    display: flex;
+    flex-direction: row;
+  
   }
 }
 
