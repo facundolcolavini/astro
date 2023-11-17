@@ -1,7 +1,6 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Mi primera publicación en el blog'
-pubDate: 16-11-2023
+pubDate: 2023-11-17
 description: 'Este es la primera publicación de mi nuevo blog de Astro.'
 author: 'Facundo Colavini'
 image:

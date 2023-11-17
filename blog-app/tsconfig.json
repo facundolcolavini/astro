@@ -1,8 +1,8 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  // Nota: No se necesitan cambios si se utiliza "astro/tsconfigs/strict" o "astro/tsconfigs/strictest"
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "baseUrl": "F:/Mis cosas/Programacion/astro/blog-app",
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "strictNullChecks": true,
+    "allowJs": true
   }
 }
