@@ -1,11 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
+const pageTitle = "Matías Szpira Bienes Raíces";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1 class="text-white">Welcome to Astro.</h1>
-	</main>
+<Layout title={pageTitle}>
+		
+		<!-- Contenido principal de la página -->
+		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+			<!-- Hero Section Image -->
+			<!-- Sección de búsqueda de propiedades -->
+			<div>
+			<h2 class="text-2xl font-bold mb-4">Buscar Propiedades</h2>
+			<!-- Aquí podrías incluir un formulario de búsqueda -->
+			</div>
+		
+			<!-- Listado de propiedades -->
+			<div class="col-span-2">
+			<h2 class="text-2xl font-bold mb-4">Propiedades Disponibles</h2>
+			<!-- Aquí podrías mostrar una lista de propiedades disponibles -->
+			</div>
+		</section>
+	
 </Layout>
 
