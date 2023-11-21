@@ -24,7 +24,7 @@ const { posts } = Astro.props;
 
 <Layout title={tag}>
   <main>
-    <h1>Entradas etiquetadas con {tag}</h1>
+    <h2>Entradas etiquetadas con {tag}</h2>
     {
       posts.map((post) => (
         <Card

@@ -11,8 +11,6 @@ const pageTitle = "Blog";
 
 <Layout title={pageTitle}>
   <main>
-   
-    <h1 class="text-gradient">Mi sitio Astro</h1>
     <p>Aquí es donde publicaré sobre mi viaje de aprendizaje Astro.</p>
     <ul class="link-card-grid">
     {allPosts?.map((post) => (
@@ -29,24 +27,12 @@ const pageTitle = "Blog";
 </Layout>
 
 <style>
-  main {
-
-  }
-
   h1 {
     font-size: 4rem;
     font-weight: 700;
     line-height: 1;
     text-align: center;
     margin-bottom: 1em;
-  }
-
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
   }
 
   .link-card-grid {

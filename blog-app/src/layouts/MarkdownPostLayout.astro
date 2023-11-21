@@ -1,4 +1,5 @@
 ---
+import { fade } from "astro:transitions";
 import TagsList from "../components/TagsList.astro";
 import Layout from "./Layout.astro";
 
@@ -9,8 +10,8 @@ const { frontmatter } = Astro.props;
   <main>
     <h1>{frontmatter.title}</h1>
     <p>{frontmatter.pubDate}</p>
-    <p><em>{frontmatter.description}</em></p>
-    <p>Escrito por: {frontmatter.author}</p>
+    <p transition:animate={fade({ duration: '2s' })} ><em>{frontmatter.description}</em></p>
+    <p>Escrito por: <a href="/about/">{frontmatter.author}</a></p>
     <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
     <TagsList tags={frontmatter.tags} />
     <slot />

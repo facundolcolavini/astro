@@ -1,5 +1,6 @@
 ---
 
+import { ViewTransitions } from 'astro:transitions';
 import '../styles/global.css';
 import Footer from "./Footer.astro";
 import Header from "./Header.astro";
@@ -19,10 +20,15 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions /> 
   </head>
   <body>
     <Header/>
-    <slot />
+    <main>
+
+      <h1 transition:animate="slide" class="text-gradient">{title}</h1>
+      <slot />
+    </main>
     <script >
       import '../scripts/menu.js';
     </script>
@@ -43,6 +49,7 @@ const { title } = Astro.props;
 
       --footer-height: 64px;
     }
+
     html {
       font-family: system-ui, sans-serif;
       background: #13151a;
@@ -75,5 +82,12 @@ const { title } = Astro.props;
         Courier New,
         monospace;
     }
+    .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
   </style>
 </html>

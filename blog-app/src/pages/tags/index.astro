@@ -5,13 +5,13 @@ import { getCollection } from "astro:content";
 
 const allPosts=  await getCollection("posts");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
-const titlePage = "Tags";
+const titlePage = "Etiquetas";
 
 ---
 
 <Layout title={titlePage}>
     <main>
-    <h1>Algunas Etiquetas:</h1>
+    <h2>Algunas Etiquetas:</h2>
     <TagsList tags={tags} />
 </main>
 </Layout>
