@@ -29,9 +29,27 @@ const { title } = Astro.props;
 	</head>
 	<body >
 		<Header/>
-		<main>
+		<main class="mx-auto container">
 		<slot />
 		</main>
 		<Footer/>
 	</body>
+	<style>
+		html{
+			height: 100%;
+		}
+		body{
+			margin: 0;
+			padding: 0;
+			font-family: 'Montserrat', sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			color: #333;
+			background-color: #fff;
+			min-height: 100vh;
+			display: flex;
+			flex-direction: column;
+		}
+	</style>
 </html>
+
