@@ -22,5 +22,4 @@ Astro es un framework cuya premisa principal es el rendimiento y la facilidad de
 
 - **Configuración personalizada del renderizado de cada componente:** Astro ofrece la flexibilidad de configurar cuándo y cómo renderizar cada componente, brindando un mayor control al desarrollador.
 
-
 Siguiendo la documentación oficial haremos algunas practicas.

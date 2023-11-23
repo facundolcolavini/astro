@@ -19,7 +19,7 @@ if(search){
 
 
 <Layout title="Busqueda de Lanzamientos">
-    <Search client:visible />
+    <Search client:visible  />
     {launches!.length === 0 ? <h1 class="text-black text-2xl my-10">No hay resultados...</h1> : (
      
         <Launches  searchedLaunch={launches}/>
