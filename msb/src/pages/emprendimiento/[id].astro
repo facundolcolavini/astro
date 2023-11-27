@@ -1,0 +1,51 @@
+---
+import type { Results } from "@/types/entrepreneurship.types";
+import Layout from "../../layouts/Layout.astro";
+
+import { getEntrepreneurshipById } from "../api/get-all-entrepreneurship";
+
+// Hybrid para que se renderice en el servidor y en el cliente
+export const prerender = false;
+
+const { id } = Astro.params
+
+let entrepreneurship;
+
+if (id){
+    entrepreneurship = await getEntrepreneurshipById(id) as Results;
+}else {
+    Astro.redirect("/404")
+}
+// Forma estatica
+// Esto sirve para cuando el usuario sabe el numero finito antes de que el usuario entre.
+// Una tienda de 50 productos se sabe que son 50 productos, pero si son 50.000 no se puede hacer esto
+// Ventajas es su velocidad. Lo malo es que si son muchas no tiene sentido.
+/* export async function  getStaticPaths(){
+    const launches = await getLastestLaunches();
+    return launches.map(launch => ({params: {id: launch.id}}))  
+ } */
+---
+
+
+<Layout title={`Emprendimiento - ${entrepreneurship?.emprendimiento[0].ed_nom}`}>
+    <section class="w-full max-w-screen-xl mx-auto py-8 px-4 h-screen">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="flex items-center justify-center md:order-2">
+          <img
+            class="object-cover w-full h-auto rounded-lg shadow-lg"
+            src={entrepreneurship?.emprendimiento[0]?.img_princ}
+            alt={entrepreneurship?.emprendimiento[0]?.ed_nom}
+          />
+        </div>
+        <div class="flex flex-col gap-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-white">
+            {entrepreneurship?.emprendimiento[0]?.ed_nom}
+          </h2>
+          <p class="text-base md:text-lg text-white">
+            {entrepreneurship?.emprendimiento[0]?.ed_cue}
+          </p>
+        </div>
+      </div>
+    </section>
+  </Layout>
+
