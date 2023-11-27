@@ -16,16 +16,7 @@ if (id){
 }else {
     Astro.redirect("/404")
 }
-// Forma estatica
-// Esto sirve para cuando el usuario sabe el numero finito antes de que el usuario entre.
-// Una tienda de 50 productos se sabe que son 50 productos, pero si son 50.000 no se puede hacer esto
-// Ventajas es su velocidad. Lo malo es que si son muchas no tiene sentido.
-/* export async function  getStaticPaths(){
-    const launches = await getLastestLaunches();
-    return launches.map(launch => ({params: {id: launch.id}}))  
- } */
 ---
-
 
 <Layout title={`Emprendimiento - ${entrepreneurship?.emprendimiento[0].ed_nom}`}>
     <section class="w-full max-w-screen-xl mx-auto py-8 px-4 h-screen">
