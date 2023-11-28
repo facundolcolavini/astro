@@ -1,0 +1,42 @@
+---
+import type { Results } from "@/types/entrepreneurship.types";
+import Layout from "../../layouts/Layout.astro";
+
+import { getEntrepreneurshipById } from "../api/get-all-entrepreneurship";
+
+// Hybrid para que se renderice en el servidor y en el cliente
+export const prerender = false;
+
+const { id } = Astro.params
+
+let entrepreneurship;
+entrepreneurship = await getEntrepreneurshipById(id as string) as Results;
+
+if (!id){
+  return Astro.redirect("/404")
+}
+---
+
+<Layout title={`Emprendimiento - ${entrepreneurship?.emprendimiento[0].ed_nom}`}>
+    <section class="w-full max-w-screen-xl mx-auto py-8 px-4 h-screen">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="flex items-center justify-center md:order-2">
+          <img
+            style=`view-transition-name: entrepreneurship-${id}`
+            class="w-full h-48 object-cover transition duration-300"
+            src={entrepreneurship?.emprendimiento[0]?.img_princ}
+            alt={entrepreneurship?.emprendimiento[0]?.ed_nom}
+          />
+        </div>
+        <div class="flex flex-col gap-4">
+          <h2 class="text-3xl md:text-4xl font-bold text-white">
+            {entrepreneurship?.emprendimiento[0]?.ed_nom}
+          </h2>
+          <p class="text-base md:text-lg text-white">
+            {entrepreneurship?.emprendimiento[0]?.}
+          </p>
+        </div>
+      </div>
+    </section>
+  </Layout>
+
