@@ -10,11 +10,10 @@ export const prerender = false;
 const { id } = Astro.params
 
 let entrepreneurship;
+entrepreneurship = await getEntrepreneurshipById(id as string) as Results;
 
-if (id){
-    entrepreneurship = await getEntrepreneurshipById(id) as Results;
-}else {
-    Astro.redirect("/404")
+if (!id){
+  return Astro.redirect("/404")
 }
 ---
 
@@ -23,7 +22,8 @@ if (id){
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div class="flex items-center justify-center md:order-2">
           <img
-            class="object-cover w-full h-auto rounded-lg shadow-lg"
+            style=`view-transition-name: entrepreneurship-${id}`
+            class="w-full h-48 object-cover transition duration-300"
             src={entrepreneurship?.emprendimiento[0]?.img_princ}
             alt={entrepreneurship?.emprendimiento[0]?.ed_nom}
           />
@@ -33,7 +33,7 @@ if (id){
             {entrepreneurship?.emprendimiento[0]?.ed_nom}
           </h2>
           <p class="text-base md:text-lg text-white">
-            {entrepreneurship?.emprendimiento[0]?.ed_cue}
+            {entrepreneurship?.emprendimiento[0]?.}
           </p>
         </div>
       </div>
