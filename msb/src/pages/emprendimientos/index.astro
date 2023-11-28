@@ -3,14 +3,16 @@ import Layout from '../../layouts/Layout.astro';
 import { getAllEntrepreneurships } from '../../pages/api/get-all-entrepreneurship';
 import CardEntrepreneurship from '../../components/CardEntrepreneuShip.astro';
 import type { Results } from '@/types/entrepreneurship.types';
-
+import BreadCrumb from '@/components/BreadCrumb.astro';
+export const prerender = false;
 const titlePage = 'Emprendimientos';
 
 const  { emprendimiento: entrepreneurship } = await getAllEntrepreneurships() as Results 
 
 ---
 <Layout title={titlePage}>
-<section class="w-full max-w-screen-xl mx-auto">
+  <section class="w-full max-w-screen-xl mx-auto">
+  <BreadCrumb/>
   <!--  skeleton  List -->
 
 

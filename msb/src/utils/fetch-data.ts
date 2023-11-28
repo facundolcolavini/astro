@@ -42,7 +42,6 @@ export async function fetchData<T>(
   }
 
   try {
-    console.log(url,'URL')
     const response = await fetch(url.toString());
     if (!response.ok) {
       throw new Error('Error al obtener los datos');
